@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reve Restaurante Bar - Experiencia Gourmet</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+    <!-- Fonts: Outfit (Modern Sans) & Playfair Display (Elegant Serif) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Layer with Video -->
+    <div class="background-wrapper">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Reve RestoBar</a>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#menu-section">Nuestra Carta</a>
+                <a href="#reservas">Reservas</a>
+            </div>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio">
+        <div class="hero-box">
+            <img src="logo.png" alt="Reve Restaurante Logo" class="hero-logo">
+            <p class="sub-hero">Gastronomía & Coctelería de Autor</p>
+            <div class="cta-group">
+                <a href="#menu-section" class="btn-main btn-gold">Ver Menú</a>
+                <a href="#reservas" class="btn-main btn-outline">Reservar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu-section">
+        <div class="section-header">
+            <h5 class="section-subtitle">Descubre nuestros sabores</h5>
+            <h2 class="section-title">La Carta</h2>
+        </div>
+
+        <div id="menuContainer">
+            <!-- JS will inject grid content here -->
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservas">
+        <div class="section-header">
+            <h5 class="section-subtitle">Tu Mesa Te Espera</h5>
+            <h2 class="section-title">Reservas</h2>
+        </div>
+
+        <div class="reservation-layout">
+            <div class="res-visual">
+                <div class="res-visual-content">
+                    <h3 class="serif-font" style="font-size: 2rem; color: #eebb55; margin-bottom: 20px;">Ambiente
+                        Exclusivo</h3>
+                    <p style="color: #ddd;">Vive momentos inolvidables con la mejor compañía y el mejor sabor.</p>
+                </div>
+            </div>
+            <div class="res-form-wrapper">
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="resName">Nombre Completo</label>
+                        <input type="text" id="resName" class="form-control" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div class="form-group" style="display: flex; gap: 20px;">
+                        <div style="flex:1">
+                            <label for="resDate">Fecha</label>
+                            <input type="date" id="resDate" class="form-control" required>
+                        </div>
+                        <div style="flex:1">
+                            <label for="resTime">Hora</label>
+                            <input type="time" id="resTime" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="resPeople">Nº Personas</label>
+                        <input type="tel" id="resPeople" class="form-control" placeholder="4 personas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resPhone">WhatsApp Confirmación</label>
+                        <input type="tel" id="resPhone" class="form-control" placeholder="Ej: 300 123 4567" required>
+                    </div>
+                    <button type="submit" class="btn-submit">CONFIRMAR RESERVA VÍA WHATSAPP</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.9rem;">
+        <p>&copy; 2026 carlos benavides. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px;">Calle 20 No. 31B - 29 Barrio Las Cuadras</p>
+    </footer>
+
+    <!-- Floating Cart Button -->
+    <div class="cart-float" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Mi Pedido</span>
+        <span class="badge-count" id="cartCount">0</span>
+    </div>
+
+    <!-- Cart Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Cart Sidebar -->
+    <aside class="sidebar" id="cartSidebar">
+        <div class="sidebar-header">
+            <h3 style="margin: 0; color: #eebb55;">Tu Pedido</h3>
+            <button id="closeCart"
+                style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">&times;</button>
+        </div>
+        <div class="sidebar-content" id="cartItems">
+            <!-- Items go here -->
+        </div>
+        <div class="sidebar-footer">
+            <div
+                style="display: flex; justify-content: space-between; font-size: 1.2rem; margin-bottom: 20px; font-weight: bold; color: #eebb55;">
+                <span>Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button id="checkoutBtn" class="btn-submit" style="background: #25D366; text-transform: uppercase;">
+                <i class="fab fa-whatsapp"></i> Enviar Pedido
+            </button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
